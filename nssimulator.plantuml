@@ -1,0 +1,50 @@
+@startuml
+
+abstract class Animal
+{
+	-name : String
+	-traits : Traits
+
+	+drink()
+	+reproduce()
+}
+
+class Traits
+{
+	-health : double
+	-eyesight : double
+	-stamina : double
+	-speed : double
+}
+
+interface IPredator extends Animal
+{
+	+eatPrey(Prey)
+}
+
+interface IPrey extends Animal
+{	
+	+eat()
+}
+
+class Predator implements IPredator
+
+class Prey implements IPrey
+
+class Environment
+{
+	-vegetation : int
+	-water : int
+	-animals : List
+}
+
+class Vegetation
+
+class WaterSource
+
+Animal -- Traits
+Environment -- Animal
+Environment -- Vegetation
+Environment -- WaterSource
+
+@enduml
